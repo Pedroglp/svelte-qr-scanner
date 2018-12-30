@@ -5,13 +5,13 @@ This is a simple QRScanner using `instascan` and Svelte.
 
 ## Get started
 
-Install the dependencies...
+Import at your javascript at hmlx (svelte) file:
 
 ```js
 import QRScanner from 'QRScanner'
 ```
 
-In html
+In html part:
 
 ```html
 <QRScanner height="100px" width="100px" opts=.../>>
@@ -33,5 +33,8 @@ In html
 ## Events
 
 * scan - Fired when the Scanner reads a QR Code, returns the content as event payload.
-* scannerStarted - Fired when 
+* scannerStarted - Fired when scanner has started.
+* scannerStopped - Fired when scanner has stopped.
+* scannerStartFailed - Fired when scanner start failed.
+* loadCameraFailed - Fired when scanner camera has failed.
 
