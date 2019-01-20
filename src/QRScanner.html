@@ -1,7 +1,7 @@
 <video ref:video width={width} height={height}></video>
 
 <script>
-import {Scanner, Camera} from 'instascan'
+let Scanner, Camera;
 
 export default {
 	data() {
@@ -16,21 +16,26 @@ export default {
 		}
 	},
 	oncreate() {
-		const _loadCamera = Camera.getCameras()
+		// needed for server sode rendering
+		import('instascan').then(instascan => {
+			Scanner = instascan.Scanner;
+			Camera = instascan.Camera;
 
-		_loadCamera.then(cameras => {
-			// console.log('load cameras success ' + cameras);
-			this.set({ cameras })
-			this._startScanner();
+			const _loadCamera = Camera.getCameras()
+
+			_loadCamera.then(cameras => {
+				// console.log('load cameras success ' + cameras);
+				this.set({ cameras })
+				this._startScanner();
+			});
+
+			_loadCamera.catch(error => {
+				// console.log('load cameras failed');
+				this.fire('loadCameraFailed');
+			});
+
+			this.set({ _loadCamera });
 		});
-
-		_loadCamera.catch(error => {
-			// console.log('load cameras failed');
-			this.fire('loadCameraFailed');
-		});
-
-		this.set({ _loadCamera });
-
 	},
 	methods: {
 		changeCamera(camera) {
