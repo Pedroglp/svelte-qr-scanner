@@ -1,5 +1,5 @@
 {
-  "name": "svelte-app",
+  "name": "svelte-qr-scanner",
   "version": "1.0.0",
   "devDependencies": {
     "cross-env": "^5.1.5",
@@ -19,6 +19,6 @@
   },
   "svelte": "src/QRScanner.html",
   "dependencies": {
-    "instascan": "^1.0.0"
+    "instascan": "git+https://github.com/schmich/instascan.git"
   }
 }
