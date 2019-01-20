@@ -14,7 +14,7 @@ import QRScanner from 'QRScanner'
 In html part:
 
 ```html
-<QRScanner height="100px" width="100px" opts=.../>>
+<QRScanner height="100" width="100" opts=.../>>
 ```
 
 # Props
