@@ -1,4 +1,8 @@
-<video ref:video width={width} height={height}></video>
+{#if cameras.length === 0}
+	<slot></slot>
+{:else}
+	<video ref:video width={width} height={height}></video>
+{/if}
 
 <script>
 let Scanner, Camera;

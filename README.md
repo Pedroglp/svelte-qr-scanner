@@ -14,7 +14,9 @@ import QRScanner from 'svelte-qr-scanner'
 In html part:
 
 ```html
-<QRScanner height="100" width="100" opts=.../>>
+<QRScanner height="100" width="100" opts=.../>
+  <div class="placeholder">No cameras loaded!</div>
+</QRScanner>
 ```
 
 # Props
