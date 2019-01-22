@@ -5,7 +5,7 @@ This is a simple QRScanner using `instascan` and Svelte.
 
 ## Get started
 
-Import at your javascript at hmlx (svelte) file:
+Import at your javascript at htmlx (svelte) file:
 
 ```js
 import QRScanner from 'svelte-qr-scanner'
