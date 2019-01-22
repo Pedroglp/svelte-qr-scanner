@@ -3,7 +3,9 @@
 {:else}
 	<video 
 		ref:video
-		style={style}>
+		style={style}
+		defaultMuted
+		playsinline>
 		</video>
 {/if}
 
@@ -25,6 +27,7 @@ export default {
 	},
 	oncreate() {
 		// needed for server sode rendering
+		// TODO check double launching camera
 		import('instascan').then(instascan => {
 			Scanner = instascan.Scanner;
 			Camera = instascan.Camera;
@@ -32,13 +35,11 @@ export default {
 			const _loadCamera = Camera.getCameras()
 
 			_loadCamera.then(cameras => {
-				// console.log('load cameras success ' + cameras);
 				this.set({ cameras })
 				this._startScanner();
 			});
 
 			_loadCamera.catch(error => {
-				// console.log('load cameras failed');
 				this.fire('loadCameraFailed');
 			});
 
