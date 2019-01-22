@@ -23,6 +23,7 @@ In html part:
 
 * width - Scanner video width.
 * height - Scanner video height.
+* fit - object-fit strategy (none, contain, fill, scale-down...).
 * cameras - List of cameras available.
 * opts - instascan opts.
 

@@ -1,7 +1,10 @@
 {#if cameras.length === 0}
 	<slot></slot>
 {:else}
-	<video ref:video width={width} height={height}></video>
+	<video 
+		ref:video
+		style={style}>
+		</video>
 {/if}
 
 <script>
@@ -17,6 +20,7 @@ export default {
 			_loadCamera: undefined,
 			height: "250",
 			width: "250",
+			fit: "contain",
 		}
 	},
 	oncreate() {
@@ -40,6 +44,11 @@ export default {
 
 			this.set({ _loadCamera });
 		});
+	},
+	computed:{
+		style({width, height, fit}) {
+			return `width: ${width}; height: ${height}; object-fit: ${fit};`;
+		}
 	},
 	methods: {
 		changeCamera(camera) {
