@@ -62,7 +62,7 @@ export default {
 					this.set({ currentCamera: cameras[index + 1] })
 					: this.set({ currentCamera: cameras[0]});
 			}
-			this.scanner.stop().then(() => {
+			this.get()._scanner.stop().then(() => {
 				this._startScanner();
 			});
 		},
