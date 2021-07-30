@@ -57,9 +57,9 @@ export default {
 			if(camera) {
 				this.set({ currentCamera: camera });
 			} else {
-				const index = cameras.indexOf(camera)
-				index < cameras.length() -1 ?
-					this.set({ currentCamera: cameras[index] })
+				const index = cameras.indexOf(currentCamera)
+				index < cameras.length - 1 ?
+					this.set({ currentCamera: cameras[index + 1] })
 					: this.set({ currentCamera: cameras[0]});
 			}
 			this.scanner.stop().then(() => {
@@ -71,6 +71,7 @@ export default {
 			const { opts, cameras, currentCamera } = this.get();
 			// checks if currentCamera exists
 			const camera = !!currentCamera ? currentCamera : cameras[0];
+			this.set({currentCamera: camera})
 			const scanner = new Scanner({ video: this.refs.video, ...opts });
 
 			scanner.addListener('scan', (content) => {	
